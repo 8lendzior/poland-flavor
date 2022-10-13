@@ -1,0 +1,35 @@
+country_decisions = {
+
+   fix_borders_zaz = {
+		potential = {
+      exists = ZAZ
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+		}
+		allow = {
+    NOT = { has_country_flag = ai_raised_cossack_host }
+		is_at_war = no	
+		}
+		effect = {
+      country_event = { id = flavor_pol.87 }
+		}
+    hidden_effect = {
+      if = {
+        limit = {
+          ai = yes
+        }
+        add_country_modifier = {
+            name = ai_raised_cossack_host
+            duration = 3650
+        }
+      }
+    }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}
