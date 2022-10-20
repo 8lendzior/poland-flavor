@@ -3,6 +3,10 @@ country_decisions = {
    fix_borders_zaz = {
 		potential = {
       exists = ZAZ
+      ZAZ = {
+          is_subject_of = ROOT
+        }
+      technology_group = eastern
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -10,13 +14,16 @@ country_decisions = {
 			}
 		}
 		allow = {
-    NOT = { has_country_flag = ai_raised_cossack_host }
+    exists = ZAZ
+    ZAZ = {
+        is_subject_of = ROOT
+      }
+    technology_group = eastern
+    NOT = { has_country_modifier = ai_raised_cossack_host }
 		is_at_war = no	
 		}
 		effect = {
       country_event = { id = flavor_pol.87 }
-		}
-    hidden_effect = {
       if = {
         limit = {
           ai = yes
@@ -26,7 +33,7 @@ country_decisions = {
             duration = 3650
         }
       }
-    }
+		}
 		ai_will_do = {
 			factor = 1
 		}

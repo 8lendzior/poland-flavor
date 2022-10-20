@@ -1728,6 +1728,11 @@ cb_cossack_vs_horde = {
 
 	prerequisites = {
 		is_neighbor_of = FROM
+    sea_zone = {
+        any_neighbor_province = {
+            owner = { is_nomad = yes }
+          }
+      }
 		FROM = {
 			is_nomad = yes
 		}

@@ -2803,7 +2803,6 @@ country_event = {
 		name = flavor_pol.88.b
 		trigger = { NOT = { exists = ZAZ } }
 		#custom_tooltip = plc_colonize_siberia.b.tt
-    country_event = { id = flavor_pol.87 }
 		add_country_modifier = {
 			name = "mug_viceroyalty_of_the_deccan"
 			duration = -1
@@ -2814,22 +2813,41 @@ country_event = {
         }
         remove_core = ZAZ
     }
-		every_province = {
+
+  every_owned_province = {
 			limit = {
-        owned_by = ROOT
+        is_capital = no
         OR = {
           any_empty_neighbor_province = {
             any_neighbor_province = {
-              owned_by = ROOT
+              OR = {
+                owned_by = ROOT
+              }
             }
           }
           any_neighbor_province = {
-            owner = { has_reform = steppe_horde }
+              owner = { 
+                has_reform = steppe_horde
+                num_of_provinces_in_states = 6
+              }
+          }
+          sea_zone = {
+            any_neighbor_province = {
+              owner = { 
+                has_reform = steppe_horde
+                num_of_provinces_in_states = 6
+              }
+            }
           }
         } 
+		  }
+      if = {
+        limit = {
+          is_core = ROOT
+        }
+        add_core = ZAZ
       }
-    add_core = ZAZ
-    }
+  }
     release = ZAZ
     create_subject = {
       subject = ZAZ
@@ -2853,40 +2871,59 @@ country_event = {
 	desc = flavor_pol.88.d 
 	picture = 12_Maratha_Estate_eventPicture
 	
+	is_triggered_only = yes
+
 	option = {
 		name = flavor_pol.88.b
 		#custom_tooltip = plc_colonize_siberia.b.tt
 
-  every_province = {
+  every_owned_province = {
 			limit = {
-        owned_by = ROOT
         is_capital = no
         OR = {
           any_empty_neighbor_province = {
             any_neighbor_province = {
-              OR = {
                 owned_by = ROOT
-              }
             }
           }
           any_neighbor_province = {
-              owner = { has_reform = steppe_horde }
+            any_neighbor_province = {
+              owner = { 
+                has_reform = steppe_horde
+                num_of_provinces_in_states = 6
+              }
+            }
           }
           sea_zone = {
             any_neighbor_province = {
-              owner = { has_reform = steppe_horde }
+            any_neighbor_province = {
+              owner = { 
+                has_reform = steppe_horde
+                num_of_provinces_in_states = 6
+              }
             }
           }
+          }
+          region = west_siberia_region
+          region = east_siberia_region
         } 
 		  }
-    cede_province = ZAZ
+      if = {
+        limit = {
+          is_core = ROOT
+        }
+        add_core = ZAZ
+      }
+      remove_core = ROOT
+      cede_province = ZAZ
   }
 
-   every_province = {
+  ZAZ = {
+   every_owned_province = {
 			limit = {
-        owned_by = ZAZ
-        NOT = { is_colony = yes }
         NOT = {
+          region = west_siberia_region
+          region = east_siberia_region
           OR = {
             any_empty_neighbor_province = {
               any_neighbor_province = {
@@ -2894,14 +2931,36 @@ country_event = {
                 }
             }
             any_neighbor_province = {
-              owner = { has_reform = steppe_horde }
+            any_neighbor_province = {
+              owner = { 
+                has_reform = steppe_horde
+                num_of_provinces_in_states = 6
+              }
             }
+          }
+            sea_zone = {
+            any_neighbor_province = {
+            any_neighbor_province = {
+              owner = { 
+                has_reform = steppe_horde
+                num_of_provinces_in_states = 6
+              }
+            }
+          }
+          }
+          is_colony = yes
           } 
         }
 		  }
+      if = {
+        limit = {
+          is_core = ZAZ
+        }
+        add_core = ROOT
+      }
       remove_core = ZAZ
-      add_core = ROOT
       cede_province = ROOT
+    }
     } 
 	}
 }

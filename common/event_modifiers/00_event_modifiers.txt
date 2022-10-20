@@ -12616,3 +12616,7 @@ empowered_regency_modifier = {
 	country_diplomatic_power = 1
 	country_military_power = 1
 }
+
+ai_raised_cossack_host = {
+  liberty_desire = 0.1
+}

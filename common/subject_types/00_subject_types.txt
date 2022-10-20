@@ -787,10 +787,11 @@ siberian_colony = {
 	change_colonial_type = yes
 	upgrade_subject_type = yes
 	is_colony_subtype = yes
-	count = colony
+	
+	liberty_desire_development_ratio = 0.25
 
-	forcelimit_to_overlord = 0.3
-	manpower_to_overlord = 0.3
+	forcelimit_to_overlord = 0.15
+	manpower_to_overlord = 0.15
 	naval_forcelimit_to_overlord = 0.0
 	sailors_to_overlord = 0.0
 

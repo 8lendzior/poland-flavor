@@ -774,8 +774,9 @@ trade_refusal = {
 }
 
 mercantilism = {
-	global_prov_trade_power_modifier = 2.0
-	embargo_efficiency = 0.5
+	global_prov_trade_power_modifier = 5.0
+	embargo_efficiency = 1
+  global_trade_goods_size_modifier = 0.5
 	burghers_loyalty_modifier = 0.05
 	vaisyas_loyalty_modifier = 0.05
 }
@@ -1330,13 +1331,14 @@ self_governing_colony_subject = {
 }
 
 siberian_colony_subject = {
-	caravan_power = 0.2
-  global_own_trade_power = 0.25
-  trade_efficiency = 0.2
+	caravan_power = 0.25
+  province_trade_power_modifier = 0.5
+  trade_efficiency = 0.25
   global_trade_goods_size_modifier = 0.2
-	global_manpower = 0.5
+	global_manpower_modifier = 1
   global_regiment_cost = -0.2
-	land_forcelimit = 0.5
+	land_forcelimit_modifier = 1
+	land_forcelimit = 3
   global_missionary_strength = 0.01
   culture_conversion_cost = -0.50
   core_creation = -0.25
@@ -1789,8 +1791,8 @@ army_drill_modifier = { # Used by an entire army, is the average of all subunits
 }
 
 janissary_regiment = {
-	fire_damage_received = -0.1
-	shock_damage_received = -0.1
+	fire_damage_received = -0.08
+	shock_damage_received = -0.08
 	reinforce_cost_modifier = 1.0
 	drill_gain_modifier = 1.0
 }
@@ -1809,7 +1811,7 @@ hussars_regiment = {
 }
 
 marine_regiment = {
-    shock_damage_received = 0.1
+    shock_damage_received = -0.1
     regiment_disembark_speed = 2 #requires a new country modifier
 }
 
@@ -1821,11 +1823,15 @@ banner_regiment = {
 }
 
 streltsy_regiment = {
-    fire_damage = 0.1
+    reinforce_speed = 1.0
+    reinforce_cost_modifier = -1.0
+    recover_army_morale_speed = 1.0
 }
 
 cossacks_regiment = {
-    shock_damage = 0.1
+    shock_damage_received = -0.1
+    movement_speed = 0.1
+    cavalry_flanking = 1
 }
 
 carolean_regiment = {
